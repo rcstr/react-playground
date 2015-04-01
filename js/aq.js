@@ -1,10 +1,12 @@
 /** @jsx React.DOM */
 (function() {
-  'use strict';
+    'use strict';
 
-  var quiz = React.createClass({
-    render: function() {
-      return <div></div>
-    }
-  });
-})();
+    var Quiz = React.createClass({
+      render: function() {
+        return <div > test < /div>
+      }
+    });
+
+    React.render( <Quiz data={"foo"}/>, document.getElementById("app"));
+    })();

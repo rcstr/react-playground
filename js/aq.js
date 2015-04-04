@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+// @TODO: add _.underscore cdn reference / airport wifi sux
 (function () {
     'use strict';
 
@@ -22,16 +23,44 @@
         }];
 
 
+    data.selectGame = function selectGame() {
+        var books = _.shuffle(this.reduce(function (p, c, i) {
+            return p.concat(c.books);
+        }, [])).slice(0, 4);
+
+        var answer = books[_.random(books.length - 1)];
+
+        return {
+            books: books,
+            author: _.find(this, function(author) {
+                return author.books.some(function(title) {
+                    return title === answer;
+                });
+            })
+        };
+    };
+
     var Quiz = React.createClass({
         propTypes: {
-            books: React.PropTypes.array.isRequired
+            data: React.PropTypes.array.isRequired
+        },
+        getInitialState: function () {
+            return this.props.data.selectGame();
         },
         render: function () {
-            return <div >
-                {this.props.books.map(function (b) {
-                    return <Book key={b} title={b}/>
-                })}
-            </div>
+            return (<div>
+                <div className="row">
+                    <div className="col-md-4">
+                        <img src={imgPath + this.state.author.img} alt="" className="author"/>
+                    </div>
+                    <div className="col-md-7">
+                        {this.state.books.map(function (b) {
+                            return <Book title={b}/>
+                        }, this)}
+                    </div>
+                    <div className="col-md-1"></div>
+                </div>
+            </div>)
         }
     });
 
@@ -40,9 +69,9 @@
             title: React.PropTypes.string.isRequired
         },
         render: function () {
-            return <div><h4>{this.props.title}</h4></div>
+            return <div className="answer"><h4>{this.props.title}</h4></div>
         }
     });
 
-    React.render(<Quiz books={['bang bang', 'rommel']}/>, document.getElementById("app"));
+    React.render(<Quiz data={data}/>, document.getElementById("app"));
 })();

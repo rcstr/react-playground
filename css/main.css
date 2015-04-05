@@ -3,6 +3,8 @@
 
     background-color: rgb(230, 248, 254);
     border-left: 4px solid lightblue;
+
+    cursor: pointer;
 }
 
 .answer:hover {
@@ -18,9 +20,9 @@ main {
 }
 
 .pass {
-    color: green;
+    background-color: green;
 }
 
 .fail {
-    color: red;
+    background-color: red;
 }

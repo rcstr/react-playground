@@ -50,7 +50,7 @@
             return (<div>
                 <div className="row">
                     <div className="col-md-4">
-                        <img src={imgPath + this.state.author.img} alt="" className="author"/>
+                        <img src={imgPath + this.state.author.img} alt="" className="author-img img-responsive"/>
                     </div>
                     <div className="col-md-7">
                         {this.state.books.map(function (b) {

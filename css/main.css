@@ -1,0 +1,26 @@
+.answer {
+    padding: 16px 15px;
+
+    background-color: rgb(230, 248, 254);
+    border-left: 4px solid lightblue;
+}
+
+.answer:hover {
+    background-color: lightblue;
+}
+
+main {
+    margin-bottom: 20px;
+}
+
+.answer-state {
+    height: 250px;
+}
+
+.pass {
+    color: green;
+}
+
+.fail {
+    color: red;
+}

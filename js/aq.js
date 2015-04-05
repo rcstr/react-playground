@@ -1,5 +1,4 @@
 /** @jsx React.DOM */
-// @TODO: add _.underscore cdn reference / airport wifi sux
 (function () {
     'use strict';
 
